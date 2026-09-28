@@ -1,0 +1,1 @@
+Return CInt(Configuration.Preferences.Core.Preferences.DecimalPlacesCurrency.GetPreferenceValue("2"))

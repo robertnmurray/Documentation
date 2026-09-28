@@ -1,0 +1,415 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0147)https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="no-js hasSidebar hasPageActions hasBreadcrumb conceptual" 
+lang="en-us" dir="ltr" data-target="docs" data-authenticated="false"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+	 
+<META charset="utf-8">	 
+<META name="viewport" content="width=device-width, initial-scale=1.0">	 
+<META content="Configure a Windows Firewall for Database Engine Access" 
+property="og:title">	 
+<META content="https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/images/microsoft-header.png" 
+property="og:image">		 
+<META name="breadcrumb_path" content="../../breadcrumb/toc.json?view=sql-server-2017"> 
+<META name="ms.suite" content="sql"> 
+<META name="ms.custom" content=""> 
+<META name="ms.tgt_pltfrm" content=""> 
+<META name="ms.assetid" content="0093b43c-c6b5-4574-9b30-3a0e91e1a1f9"> 
+<META name="ms.prod_service" content="high-availability"> 
+<META name="author" content="MikeRayMSFT"> 
+<META name="ms.author" content="mikeray"> 
+<META name="manager" content="craigg"> 
+<META name="caps.latest.revision" content="57"> 
+<META name="ms.topic" content="conceptual"> 
+<META name="ms.date" content="03/14/2017"> 
+<META name="ms.technology" content="configuration"> 
+<META name="ms.prod" content="sql"> 
+<META name="ms.reviewer" content=""> 
+<META name="search.ms_sitename" content="Docs"> 
+<META name="search.ms_docsetname" content="sql-content"> 
+<META name="version" content="0"> 
+<META name="locale" content="en-us"> 
+<META name="site_name" content="Docs"> 
+<META name="search.ms_product" content="SQL"> 
+<META name="depot_name" content="SQL.sql-content"> 
+<META name="updated_at" content="2018-08-16 05:32 PM"> 
+<META name="gitcommit" content="https://github.com/MicrosoftDocs/sql-docs-pr/blob/d12baef6c81515a8371d5d7401a7eca9be6b35c9/docs/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access.md"> 
+<META name="original_content_git_url" content="https://github.com/MicrosoftDocs/sql-docs-pr/blob/live/docs/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access.md"> 
+<META name="document_id" content="650f42a4-4158-d394-5669-bdfcfbfc0dbe"> 
+<META name="document_version_independent_id" content="86445496-a04a-573c-3aa8-df70cbd6fa52"> 
+<META name="monikers" content="sql-server-2016"> 
+<META name="monikers" content="sql-server-2017"> 
+<META name="monikers" content="sql-server-ver15"> 
+<META name="monikers" content="sql-server-linux-2017"> 
+<META name="monikers" content="sql-server-linux-ver15"> 
+<META name="monikers" content="sqlallproducts-allversions"> 
+<META name="page_type" content="conceptual"> 
+<META name="toc_rel" content="toc.json?view=sql-server-2017"> 
+<META name="pdf_url_template" content="https://docs.microsoft.com/pdfstore/en-us/SQL.sql-content/{branchName}{pdfName}"> 
+<META name="word_count" content="872">	 
+<META name="scope" content="sql"> <LINK href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access" 
+rel="canonical">	 <TITLE>Configure a Windows Firewall for Database Engine Access 
+| Microsoft Docs</TITLE>		 <LINK href="Configure%20a%20Windows%20Firewall%20for%20Database%20Engine%20Access%20%20Microsoft%20Docs_files/f5cb22a2.site-ltr.css" 
+rel="stylesheet">	 <LINK href="Configure%20a%20Windows%20Firewall%20for%20Database%20Engine%20Access%20%20Microsoft%20Docs_files/5996f9ee.conceptual.css" 
+rel="stylesheet">	 
+<SCRIPT>
+	var msDocs = {
+		data:{
+			azureHeaderLocale: 'en-us',
+			contentLocale: 'en-us',
+			contentDir: 'ltr',
+			userLocale: 'en-us',
+			userDir: 'ltr',
+			pageTemplate: 'Conceptual',
+			brand: '',
+			context: {
+
+			},
+			hasComments: true,
+			feedbackSystem: 'LiveFyre',
+			feedbackGitHubRepo: '',
+			feedbackProductUrl: '',
+			contentGitUrl: 'https://github.com/MicrosoftDocs/sql-docs/blob/live/docs/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access.md',
+			forceVersionPicker:false		},
+		functions:{},
+		settings:{
+			extendBreadcrumb: false,
+			enableUHFPPE: false
+		}
+	};
+	if (!('Promise' in window && 'resolve' in window.Promise && 'reject' in window.Promise && 'all' in window.Promise && 'race' in window.Promise)) {
+		document.write('<script src="/_themes/docs.theme/master/en-us/_themes/global/js/6ee34c01.bluebird.min.js"><\/script>');
+	}
+	if (typeof fetch !== 'function') {
+		document.write('<script src="/_themes/docs.theme/master/en-us/_themes/global/js/d9fc435c.fetch.min.js"><\/script>');
+	}
+	</SCRIPT>
+	 
+<SCRIPT src="Configure%20a%20Windows%20Firewall%20for%20Database%20Engine%20Access%20%20Microsoft%20Docs_files/jquery-2.2.4.min.js"></SCRIPT>
+	 
+<SCRIPT src="Configure%20a%20Windows%20Firewall%20for%20Database%20Engine%20Access%20%20Microsoft%20Docs_files/a6ed15c6.localized-strings.js"></SCRIPT>
+	 
+<SCRIPT src="Configure%20a%20Windows%20Firewall%20for%20Database%20Engine%20Access%20%20Microsoft%20Docs_files/27c3c2db.global.min.js"></SCRIPT>
+ 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY lang="en-us" dir="ltr">
+<DIV class="header-holder">
+<DIV id="headerAreaHolder" data-bi-name="header">
+<DIV id="uhf-placeholder"></DIV></DIV>
+<DIV class="content-header uhf-container has-padding" data-bi-name="content-header">
+<UL class="breadcrumbs" role="navigation" aria-label="Breadcrumb" data-bi-name="breadcrumb" 
+itemtype="http://schema.org/BreadcrumbList" itemscope="">
+  <LI></LI></UL>
+<DIV class="content-header-controls exit-focus"><BUTTON class="ap-collapse-behavior ap-expanded button-border" 
+type="button" data-bi-name="ap-collapse"><SPAN 
+class="docon docon-exit-mode"></SPAN> Exit focus mode			</BUTTON>					 </DIV>
+<DIV class="content-header-controls"><BUTTON class="contents-button button-border" 
+type="button" data-bi-name="contents-expand"><SPAN 
+class="docon docon-menu"></SPAN> Contents			</BUTTON>		 </DIV>
+<DIV class="action-bar">
+<UL class="action-list">
+  <LI><A id="comments-link" href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017#comments-container" 
+  data-bi-name="comments"><SPAN class="docon docon-comment-lines" aria-hidden="true"></SPAN><SPAN 
+  class="action-item-text">Feedback</SPAN>							 </A>						 </LI>							 
+  <LI id="contenteditbtn"><A title="Edit This Document" href="https://github.com/MicrosoftDocs/sql-docs/blob/live/docs/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access.md" 
+  data-bi-name="edit" data-original_content_git_url="https://github.com/MicrosoftDocs/sql-docs-pr/blob/live/docs/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access.md"><SPAN 
+  class="docon docon-edit-outline" aria-hidden="true"></SPAN><SPAN class="action-item-text">Edit</SPAN>
+  								 </A>							 </LI>				 
+  <LI>
+  <DIV class="sharing dropdown has-caret" auto-align=""><A title="Share This Document" 
+  class="dropdown-trigger" aria-expanded="false" aria-haspopup="true" 
+  aria-controls="sharing-menu" href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017#" 
+  data-bi-name="share"><SPAN class="docon docon-sharing" 
+  aria-hidden="true"></SPAN><SPAN class="action-item-text">Share</SPAN>
+  						 </A>						 
+  <DIV class="dropdown-menu" id="sharing-menu" role="menu">
+  <UL data-bi-name="share-links">
+    <LI><A class="share-twitter" data-bi-name="twitter"><SPAN class="docon docon-brand-twitter" 
+    aria-hidden="true"></SPAN>Twitter</A></LI>
+    <LI><A class="share-linkedin" data-bi-name="linkedin"><SPAN class="docon docon-brand-linkedin" 
+    aria-hidden="true"></SPAN>LinkedIn</A></LI>
+    <LI><A class="share-facebook" data-bi-name="facebook"><SPAN class="docon docon-brand-facebook" 
+    aria-hidden="true"></SPAN>Facebook</A></LI>
+    <LI><A class="share-email" data-bi-name="email"><SPAN class="docon docon-mail-message-fill" 
+    aria-hidden="true"></SPAN>Email</A></LI></UL></DIV></DIV></LI>				 
+  <LI><BUTTON class="toggle-theme" aria-label="toggle-theme" data-bi-name="select-theme"><SPAN 
+  class="docon docon-sun"></SPAN><SPAN 
+  class="action-item-text">Theme</SPAN></BUTTON>				 </LI>				 
+  <LI class="is-unstyled-action-list-item"><A class="docs-sign-in not-authenticated button is-text has-text-primary is-size-7" 
+  href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017#">Sign 
+  in</A>					 
+  <DIV class="dropdown has-caret authenticated" auto-align=""><BUTTON class="dropdown-trigger button is-text is-radiusless" 
+  aria-expanded="false" aria-haspopup="true" aria-controls="user-menu" 
+  aria-label="Your Account"><SPAN class="image icon is-hidden-mobile" 
+  aria-hidden="true"><IMG class="has-background-grey-light is-rounded" 
+  data-profile-property="avatarUrl"></SPAN>							 <SPAN class="is-size-7 is-truncated is-hidden-mobile" 
+  data-profile-property="userName"></SPAN>							 <SPAN class="image icon is-hidden-tablet is-marginless" 
+  aria-hidden="true"><IMG class="has-background-grey-light is-rounded" 
+  data-profile-property="avatarUrl"></SPAN></BUTTON>						 
+  <DIV class="dropdown-menu box" id="user-menu" role="menu">
+  <DIV class="media">
+  <DIV class="media-left"><SPAN class="image is-64x64" aria-hidden="true"><IMG 
+  class="has-background-grey-light is-rounded" 
+  data-profile-property="avatarUrl"></SPAN></DIV>
+  <DIV class="media-content">
+  <P class="title has-margin-top-small"><SPAN class="is-truncated" style="max-width: 200px;" 
+  data-profile-property="userName"></SPAN>									 </P>
+  <P class="subtitle"><SPAN class="is-truncated" style="max-width: 200px;" 
+  data-profile-property="upn"></SPAN>									 </P></DIV></DIV>
+  <UL class="is-unstyled is-marginless">
+    <LI><A href="https://docs.microsoft.com/profile" data-profile-property="profileUrl">Profile</A></LI>
+    <LI><A class="docs-sign-out" href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017#">Sign 
+    out</A></LI></UL></DIV></DIV></LI></UL><BUTTON class="contents-button" 
+aria-label="Contents" type="button" data-bi-name="contents-expand-"><SPAN class="docon docon-editor-list-bullet"></SPAN><SPAN>Contents</SPAN>
+			 </BUTTON>		 </DIV></DIV>
+<DIV class="disclaimer-holder" id="disclaimer-holder"></DIV></DIV>
+<DIV class="mainContainer uhf-container  has-top-padding " data-bi-name="body">
+<DIV class="columns "><SECTION class="primary-holder column is-two-thirds-tablet is-three-quarters-desktop">
+<DIV class="columns ">
+<DIV class="right-container column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only" 
+id="page-actions" role="complementary" aria-label="Page Actions" data-bi-name="pageactions"><NAV 
+class="doc-outline" id="side-doc-outline" role="navigation" aria-label="On page navigation" 
+data-bi-name="intopic toc">
+<H3>In this article</H3></NAV></DIV>
+<DIV class="column  is-full is-four-fifths-desktop " id="main-column"><main 
+class="content" id="main" role="main" lang="en-us" dir="ltr" data-bi-name="content">
+<H1 id="configure-a-windows-firewall-for-database-engine-access" 
+sourceendlinenumber="22" sourcestartlinenumber="22" sourcefile="database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access.md">Configure 
+a Windows Firewall for Database Engine Access</H1>
+<UL class="metadata page-metadata" lang="en-us" dir="ltr" data-bi-name="page info">
+  <LI class="displayDate loading"><SPAN class="docon docon-calendar" 
+  aria-hidden="true"></SPAN>								 <time role="presentation" 
+  data-article-date-source="ms.date" 
+  datetime="2017-03-14T00:00:00.000Z">03/14/2017</time>							 </LI>
+  <LI class="readingTime"><SPAN class="docon docon-clock" 
+  aria-hidden="true"></SPAN>									4 minutes to read								 </LI>
+  <LI class="contributors-holder"><SPAN 
+  class="contributors-text">Contributors</SPAN>								 
+  <UL class="contributors" data-bi-name="contributors">
+    <LI><A title="Mike Ray" href="https://github.com/MikeRayMSFT" data-bi-name="contributorprofile"><IMG 
+    alt="Mike Ray" src="Configure%20a%20Windows%20Firewall%20for%20Database%20Engine%20Access%20%20Microsoft%20Docs_files/contributor.svg" 
+    data-src="https://github.com/MikeRayMSFT.png?size=32"></A></LI>
+    <LI><A title="Mike B" href="https://github.com/mikeblome" data-bi-name="contributorprofile"><IMG 
+    alt="Mike B" src="Configure%20a%20Windows%20Firewall%20for%20Database%20Engine%20Access%20%20Microsoft%20Docs_files/contributor.svg" 
+    data-src="https://github.com/mikeblome.png?size=32"></A></LI>
+    <LI><A title="Saisang Cai" href="https://github.com/Saisang" data-bi-name="contributorprofile"><IMG 
+    alt="Saisang Cai" src="Configure%20a%20Windows%20Firewall%20for%20Database%20Engine%20Access%20%20Microsoft%20Docs_files/contributor.svg" 
+    data-src="https://github.com/Saisang.png?size=32"></A></LI>
+    <LI><A title="Craig Guyer" href="https://github.com/craigg-msft" 
+    data-bi-name="contributorprofile"><IMG alt="Craig Guyer" src="Configure%20a%20Windows%20Firewall%20for%20Database%20Engine%20Access%20%20Microsoft%20Docs_files/contributor.svg" 
+    data-src="https://github.com/craigg-msft.png?size=32"></A></LI>
+    <LI><A title="Cody Mansfield" href="https://github.com/v-cmans" 
+    data-bi-name="contributorprofile"><IMG alt="Cody Mansfield" src="Configure%20a%20Windows%20Firewall%20for%20Database%20Engine%20Access%20%20Microsoft%20Docs_files/contributor.svg" 
+    data-src="https://github.com/v-cmans.png?size=32"></A></LI></UL></LI></UL><NAV 
+class="doc-outline is-hidden-desktop" id="center-doc-outline" role="navigation" 
+aria-label="On page navigation" data-bi-name="intopic toc">
+<H3>In this article</H3></NAV><!-- <content> -->							 <token><STRONG>APPLIES 
+TO:</STRONG> <IMG alt="yes" src="Configure%20a%20Windows%20Firewall%20for%20Database%20Engine%20Access%20%20Microsoft%20Docs_files/yes.png" 
+data-linktype="relative-path">SQL Server <IMG alt="no" src="Configure%20a%20Windows%20Firewall%20for%20Database%20Engine%20Access%20%20Microsoft%20Docs_files/no.png" 
+data-linktype="relative-path">Azure SQL Database <IMG alt="no" src="Configure%20a%20Windows%20Firewall%20for%20Database%20Engine%20Access%20%20Microsoft%20Docs_files/no.png" 
+data-linktype="relative-path">Azure SQL Data Warehouse <IMG alt="no" src="Configure%20a%20Windows%20Firewall%20for%20Database%20Engine%20Access%20%20Microsoft%20Docs_files/no.png" 
+data-linktype="relative-path">Parallel Data Warehouse </token> 
+<BLOCKQUOTE>
+  <P>For content related to previous versions of SQL Server, see <A href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017" 
+  data-linktype="relative-path">Configure a Windows Firewall for Database Engine 
+  Access</A>.</P></BLOCKQUOTE>
+<P>  This topic describes how to configure a Windows firewall for Database 
+Engine access in  SQL Server 2017 by using SQL Server Configuration Manager. 
+Firewall systems help prevent unauthorized access to computer resources. To 
+access an instance of the  SQL Server Database Engine through a firewall, you 
+must configure the firewall on the computer running  SQL Server to allow access. 
+ </P>
+<P> For more information about the default Windows firewall settings, and a 
+description of the TCP ports that affect the  Database Engine, Analysis 
+Services, Reporting Services, and Integration Services, see <A href="https://docs.microsoft.com/en-us/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access?view=sql-server-2017" 
+data-linktype="relative-path">Configure the Windows Firewall to Allow SQL Server 
+Access</A>. There are many firewall systems available. For information specific 
+to your system, see the firewall documentation.  </P>
+<P> The principal steps to allow access are:  </P>
+<OL>
+  <LI>
+  <P>Configure the  Database Engine to use a specific TCP/IP port. The default 
+  instance of the  Database Engine uses port 1433, but that can be changed. The 
+  port used by the  Database Engine is listed in the  SQL Server error log. 
+  Instances of  SQL Server Express,  SQL Server Compact, and named instances of 
+  the  Database Engine use dynamic ports. To configure these instances to use a 
+  specific port, see <A href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-a-server-to-listen-on-a-specific-tcp-port?view=sql-server-2017" 
+  data-linktype="relative-path">Configure a Server to Listen on a Specific TCP 
+  Port (SQL Server Configuration Manager)</A>.  </P></LI>
+  <LI>
+  <P>Configure the firewall to allow access to that port for authorized users or 
+  computers.  </P></LI></OL>
+<DIV class="NOTE">
+<P>Note</P>
+<P> The  SQL Server Browser service lets users connect to instances of the  
+Database Engine that are not listening on port 1433, without knowing the port 
+number. To use  SQL Server Browser, you must open UDP port 1434. To promote the 
+most secure environment, leave the  SQL Server Browser service stopped, and 
+configure clients to connect using the port number.  </P></DIV>
+<DIV class="NOTE">
+<P>Note</P>
+<P> By default,  Microsoft Windows enables the Windows Firewall, which closes 
+port 1433 to prevent Internet computers from connecting to a default instance of 
+ SQL Server on your computer. Connections to the default instance using TCP/IP 
+are not possible unless you reopen port 1433. The basic steps to configure the 
+Windows firewall are provided in the following procedures. For more information, 
+see the Windows documentation.  </P></DIV>
+<P> As an alternative to configuring  SQL Server to listen on a fixed port and 
+opening the port, you can list the  SQL Server executable (Sqlservr.exe) as an 
+exception to the blocked programs. Use this method when you want to continue to 
+use dynamic ports. Only one instance of  SQL Server can be accessed in this way. 
+ </P>
+<P><STRONG>In This Topic</STRONG>  </P>
+<UL>
+  <LI>
+  <P><STRONG>Before you begin:</STRONG>  </P>
+  <P><A href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017#Security" 
+  data-linktype="self-bookmark">Security</A>  </P></LI>
+  <LI>
+  <P><STRONG>To configure a Widows Firewall for Database Engine access, 
+  using:</STRONG>  </P>
+  <P><A href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017#SSMSProcedure" 
+  data-linktype="self-bookmark">SQL Server Configuration Manager</A>  
+</P></LI></UL>
+<H2 id="before-you-begin">Before You Begin</H2>
+<H3 id="Security"> Security</H3>
+<P> Opening ports in your firewall can leave your server exposed to malicious 
+attacks. Make sure that you understand firewall systems before you open ports. 
+For more information, see <A href="https://docs.microsoft.com/en-us/sql/sql-server/install/security-considerations-for-a-sql-server-installation?view=sql-server-2017" 
+data-linktype="relative-path">Security Considerations for a SQL Server 
+Installation</A>  </P>
+<H2 id="SSMSProcedure"> Using SQL Server Configuration Manager</H2>
+<P> Applies to Windows Vista, Windows 7, and Windows Server 2008  </P>
+<P> The following procedures configure the Windows Firewall by using the Windows 
+Firewall with Advanced Security Microsoft Management Console (MMC) snap-in. The 
+Windows Firewall with Advanced Security only configures the current profile. For 
+more information about the Windows Firewall with Advanced Security, see <A href="https://docs.microsoft.com/en-us/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access?view=sql-server-2017" 
+data-linktype="relative-path">Configure the Windows Firewall to Allow SQL Server 
+Access</A>  </P>
+<H4 id="to-open-a-port-in-the-windows-firewall-for-tcp-access">To open a port in 
+the Windows firewall for TCP access</H4>
+<OL>
+  <LI>
+  <P>On the <STRONG>Start</STRONG> menu, click <STRONG>Run</STRONG>, type 
+  <STRONG>WF.msc</STRONG>, and then click <STRONG>OK</STRONG>.  </P></LI>
+  <LI>
+  <P>In the <STRONG>Windows Firewall with Advanced Security</STRONG>, in the 
+  left pane, right-click <STRONG>Inbound Rules</STRONG>, and then click 
+  <STRONG>New Rule</STRONG> in the action pane.  </P></LI>
+  <LI>
+  <P>In the <STRONG>Rule Type</STRONG> dialog box, select <STRONG>Port</STRONG>, 
+  and then click <STRONG>Next</STRONG>.  </P></LI>
+  <LI>
+  <P>In the <STRONG>Protocol and Ports</STRONG> dialog box, select 
+  <STRONG>TCP</STRONG>. Select <STRONG>Specific local ports</STRONG>, and then 
+  type the port number of the instance of the  Database Engine, such as 
+  <STRONG>1433</STRONG> for the default instance. Click <STRONG>Next</STRONG>.  
+  </P></LI>
+  <LI>
+  <P>In the <STRONG>Action</STRONG> dialog box, select <STRONG>Allow the 
+  connection</STRONG>, and then click <STRONG>Next</STRONG>.  </P></LI>
+  <LI>
+  <P>In the <STRONG>Profile</STRONG> dialog box, select any profiles that 
+  describe the computer connection environment when you want to connect to the  
+  Database Engine, and then click <STRONG>Next</STRONG>.  </P></LI>
+  <LI>
+  <P>In the <STRONG>Name</STRONG> dialog box, type a name and description for 
+  this rule, and then click <STRONG>Finish</STRONG>.  </P></LI></OL>
+<H4 id="to-open-access-to-sql-server-when-using-dynamic-ports">To open access to 
+SQL Server when using dynamic ports</H4>
+<OL>
+  <LI>
+  <P>On the <STRONG>Start</STRONG> menu, click <STRONG>Run</STRONG>, type 
+  <STRONG>WF.msc</STRONG>, and then click <STRONG>OK</STRONG>.  </P></LI>
+  <LI>
+  <P>In the <STRONG>Windows Firewall with Advanced Security</STRONG>, in the 
+  left pane, right-click <STRONG>Inbound Rules</STRONG>, and then click 
+  <STRONG>New Rule</STRONG> in the action pane.  </P></LI>
+  <LI>
+  <P>In the <STRONG>Rule Type</STRONG> dialog box, select 
+  <STRONG>Program</STRONG>, and then click <STRONG>Next</STRONG>.  </P></LI>
+  <LI>
+  <P>In the <STRONG>Program</STRONG> dialog box, select <STRONG>This program 
+  path</STRONG>. Click <STRONG>Browse</STRONG>, and navigate to the instance of  
+  SQL Server that you want to access through the firewall, and then click 
+  <STRONG>Open</STRONG>. By default,  SQL Server is at <STRONG>C:\Program 
+  Files\Microsoft SQL 
+  Server\MSSQL13.MSSQLSERVER\MSSQL\Binn\Sqlservr.exe</STRONG>. Click 
+  <STRONG>Next</STRONG>.  </P></LI>
+  <LI>
+  <P>In the <STRONG>Action</STRONG> dialog box, select <STRONG>Allow the 
+  connection</STRONG>, and then click <STRONG>Next</STRONG>.  </P></LI>
+  <LI>
+  <P>In the <STRONG>Profile</STRONG> dialog box, select any profiles that 
+  describe the computer connection environment when you want to connect to the  
+  Database Engine, and then click <STRONG>Next</STRONG>.  </P></LI>
+  <LI>
+  <P>In the <STRONG>Name</STRONG> dialog box, type a name and description for 
+  this rule, and then click <STRONG>Finish</STRONG>.  </P></LI></OL>
+<H2 id="see-also">See Also</H2>
+<P><A href="https://azure.microsoft.com/documentation/articles/sql-database-configure-firewall-settings/" 
+data-linktype="external">How to: Configure Firewall Settings (Azure SQL 
+Database)</A>  </P><!-- </content> -->													 </main><!-- feedback section -->
+												 
+<DIV class="note alert feedback-system-change-alert">
+<P>Note</P>
+<P>The feedback system for this content will be changing soon. Old comments will 
+not be carried over. If content within a comment thread is important to you, 
+please save a copy. For more information on the upcoming change, <A href="https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs">we 
+invite you to read our blog post</A>.</P></DIV>
+<DIV id="comments-container" role="form" data-bi-name="comments"></DIV><!-- end feedback section -->
+						 
+<DIV class="footerContainer is-visible-interactive "><FOOTER class="footer-layout" 
+id="footer" role="contentinfo" data-bi-name="footer"><A class="locale-selector-link" 
+href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017#" 
+data-bi-name="select-locale" data-mscc-ic="false"></A>     
+<UL class="links" data-bi-name="footerlinks">
+  <LI><A href="https://docs.microsoft.com/previous-versions/" data-bi-name="archivelink" 
+  data-mscc-ic="false">Previous Version Docs</A></LI>
+  <LI><A href="https://docs.microsoft.com/teamblog" data-bi-name="bloglink" 
+  data-mscc-ic="false">Blog</A></LI>
+  <LI><A href="https://docs.microsoft.com/contribute" data-bi-name="contributorGuide" 
+  data-mscc-ic="false">Contribute</A></LI>
+  <LI><A href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy" 
+  data-mscc-ic="false">Privacy &amp; Cookies</A></LI>
+  <LI><A href="https://docs.microsoft.com/en-us/legal/termsofuse" data-bi-name="termsofuse" 
+  data-mscc-ic="false">Terms of Use</A></LI>
+  <LI><A href="https://aka.ms/sitefeedback" data-bi-name="feedback" 
+  data-mscc-ic="false">Site Feedback</A></LI>
+  <LI><A href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" 
+  data-bi-name="trademarks" 
+data-mscc-ic="false">Trademarks</A></LI></UL></FOOTER>						</DIV></DIV><!--end of div.columns -->
+				 </DIV><!--end of .primary-holder -->			 </SECTION>
+<DIV class="left-container column is-one-third-tablet is-one-quarter-desktop" 
+id="left-container"><NAV class="sidebar" id="sidebar" role="navigation" 
+aria-label="Main Navigation" data-bi-name="left toc"><BUTTON class="sidebar-header" 
+aria-label="Close" type="button" 
+data-bi-name="contents-collapse"><SPAN>Contents</SPAN>							 <SPAN class="docon docon-navigate-close" 
+aria-hidden="true"></SPAN>						 </BUTTON>						 
+<DIV id="sidebarContent">
+<DIV class="filterHolder"></DIV><NAV class="toc"></NAV>
+<DIV class="pdfDownloadHolder"></DIV></DIV></NAV></DIV><ASIDE class="interactive-container is-visible-interactive column has-background-light " 
+id="interactive-container"></ASIDE>		 </DIV><!--end of .mainContainer -->
+	 </DIV>
+<DIV class="openfeedback-container" id="openFeedbackContainer"></DIV>
+<DIV class="footerContainer is-hidden-interactive "><FOOTER class="footer-layout uhf-container has-padding" 
+id="footer" role="contentinfo" data-bi-name="footer"><A class="locale-selector-link" 
+href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017#" 
+data-bi-name="select-locale" data-mscc-ic="false"></A>     
+<UL class="links" data-bi-name="footerlinks">
+  <LI><A href="https://docs.microsoft.com/previous-versions/" data-bi-name="archivelink" 
+  data-mscc-ic="false">Previous Version Docs</A></LI>
+  <LI><A href="https://docs.microsoft.com/teamblog" data-bi-name="bloglink" 
+  data-mscc-ic="false">Blog</A></LI>
+  <LI><A href="https://docs.microsoft.com/contribute" data-bi-name="contributorGuide" 
+  data-mscc-ic="false">Contribute</A></LI>
+  <LI><A href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy" 
+  data-mscc-ic="false">Privacy &amp; Cookies</A></LI>
+  <LI><A href="https://docs.microsoft.com/en-us/legal/termsofuse" data-bi-name="termsofuse" 
+  data-mscc-ic="false">Terms of Use</A></LI>
+  <LI><A href="https://aka.ms/sitefeedback" data-bi-name="feedback" 
+  data-mscc-ic="false">Site Feedback</A></LI>
+  <LI><A href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" 
+  data-bi-name="trademarks" 
+data-mscc-ic="false">Trademarks</A></LI></UL></FOOTER>	</DIV>
+<DIV class="action-panel"></DIV></BODY></HTML>
